@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rojo Bermelo</title>
+    <link rel="stylesheet" href="css\styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <img class="mock" src="images\mockup.png" alt="Mockup de página larga">
+    </div>
+    
+    <div id="contenedor-chatbot" style="display: none;">
+        <iframe src="http://chatbotemeritus01.pythonanywhere.com/" class="chatbot"></iframe>
+    </div>
+
+    <div id="chatbotIcon" onclick="toggleChatbot()">
+        <img src="images\burbuja-de-dialogo_2.png" alt="Chatbot" width="60" height="60">
+    </div>
+</body>
+<script>
+    // Funciones para controlar el carrusel
+    const carouselInner = document.querySelector('.carousel-inner');
+    const prevBtn = document.querySelector('.carousel-control.prev');
+    const nextBtn = document.querySelector('.carousel-control.next');
+
+    let currentIndex = 0;
+    const itemCount = carouselInner.children.length;
+
+    function moveCarousel(direction) {
+        if (direction === 'prev') {
+            currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+        } else {
+            currentIndex = (currentIndex + 1) % itemCount;
+        }
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => moveCarousel('prev'));
+    nextBtn.addEventListener('click', () => moveCarousel('next'));
+</script>
+
+
+<script>
+    function toggleChatbot() {
+    var chatbotContainer = document.getElementById('contenedor-chatbot');
+    var chatbotIcon = document.getElementById('chatbotIcon');
+    if (chatbotContainer.style.display === 'none') {
+        chatbotContainer.style.display = 'block';
+        chatbotIcon.style.display = 'none';
+    } else {
+        chatbotContainer.style.display = 'none';
+    }
+}
+</script>
+</html>
