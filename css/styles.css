@@ -109,7 +109,7 @@ main {
 #chatbotIcon {
     position: fixed;
     bottom: 10px;
-    right: 10px;
+    right: 48px;
     cursor: pointer;
     z-index: 999;
 }
